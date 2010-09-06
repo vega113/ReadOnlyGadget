@@ -16,6 +16,7 @@ import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.DisclosurePanel;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
@@ -38,6 +39,8 @@ public class MainPanel extends Composite {
 	Label aboutNewPostLbl;
 	@UiField
 	Label helloUserLbl;
+	@UiField
+	DisclosurePanel dsAboutPnl;
 
 	private NewPostGadgetService service;
 	private MessagesImpl messages;
@@ -55,6 +58,7 @@ public class MainPanel extends Composite {
 		this.constants = constants;
 		this.resources = resources;
 		this.utils = utils;
+//		dsAboutPnl.setHeader()
 		try{
 			setForumInfoIntoGadget(messages, utils);
 		}catch(Exception e){
@@ -100,6 +104,7 @@ public class MainPanel extends Composite {
 		} catch (RequestException e) {
 			Log.error("error in createNewPost", e);
 		}
+		utils.reportEvent("/newpost/", "createNewPost", projectId, 1);
 	}
 
 	public void setForumInfoIntoGadget(final MessagesImpl messages,

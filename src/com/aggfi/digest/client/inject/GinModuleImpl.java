@@ -12,8 +12,9 @@ import com.google.gwt.inject.client.AbstractGinModule;
 import com.google.inject.Singleton;
 import com.vegalabs.features.client.feature.minimessages.MiniMessagesFeature;
 import com.vegalabs.features.client.feature.views.ViewsFeature;
-import com.vegalabs.features.client.request.WaveRequestServiceImpl;
+import com.vegalabs.features.client.request.GadgetRequestServiceImpl;
 import com.vegalabs.features.client.utils.WaveVegaUtilsImpl;
+import com.vegalabs.general.client.objects.AppDomainId;
 import com.vegalabs.general.client.objects.GoogleAnalyticsId;
 import com.vegalabs.general.client.request.RequestService;
 import com.vegalabs.general.client.utils.VegaUtils;
@@ -32,7 +33,7 @@ public class GinModuleImpl extends AbstractGinModule {
 
 		bind(NewPostGadgetService.class).to(NewPostGadgetServiceImpl.class);
 		bind(VegaUtils.class).to(WaveVegaUtilsImpl.class);
-		bind(RequestService.class).to(WaveRequestServiceImpl.class).in(Singleton.class);
+		bind(RequestService.class).to(GadgetRequestServiceImpl.class).in(Singleton.class);
 		
 		bind(WaveFeature.class).toProvider(ReadOnlyGadget.WaveFeatureProvider.class).in(Singleton.class);
 		bind(GoogleAnalyticsFeature.class).toProvider(ReadOnlyGadget.AnalyticsFeatureProvider.class).in(Singleton.class);
@@ -40,6 +41,7 @@ public class GinModuleImpl extends AbstractGinModule {
 		bind(DynamicHeightFeature.class).toProvider(ReadOnlyGadget.DynamicHeightFeatureProvider.class).in(Singleton.class);
 		bind(ViewsFeature.class).toProvider(ReadOnlyGadget.ViewsFeatureProvider.class).in(Singleton.class);
 		bind(GoogleAnalyticsId.class).toProvider(ReadOnlyGadget.AnalyticsIdFeatureProvider.class).in(Singleton.class);
+		bind(AppDomainId.class).toProvider(ReadOnlyGadget.AppDomainIdFeatureProvider.class).in(Singleton.class);
 
 	}
 }

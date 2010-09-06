@@ -25,6 +25,7 @@ import com.vegalabs.features.client.feature.minimessages.MiniMessagesFeature;
 import com.vegalabs.features.client.feature.minimessages.NeedsMiniMessages;
 import com.vegalabs.features.client.feature.views.NeedsViews;
 import com.vegalabs.features.client.feature.views.ViewsFeature;
+import com.vegalabs.general.client.objects.AppDomainId;
 import com.vegalabs.general.client.objects.GoogleAnalyticsId;
 @AllowHtmlQuirksMode
 @UseLongManifestName
@@ -142,4 +143,17 @@ static WaveFeature waveFeature;
 			return new GoogleAnalyticsId("UA-13269470-3");
 		}
 	}
+	
+	public static class AppDomainIdFeatureProvider implements Provider<AppDomainId>{
+
+		@Override
+		public AppDomainId get() {
+			AppDomainId ad = new AppDomainId();
+			ad.setId("digestbotty");
+			Log.info("The applicationId is: " + ad.getId());
+			return ad;
+		}
+
+	}
+
 }

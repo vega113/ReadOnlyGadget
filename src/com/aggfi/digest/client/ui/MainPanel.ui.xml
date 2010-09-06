@@ -11,12 +11,13 @@
 	<g:HTMLPanel>
 		<g:VerticalPanel width='{constants.basicWidthStr}'
 			stylePrimaryName='{res.globalCSS.highlightRow}'>
-			<g:CaptionPanel captionText='{constants.aboutStr}'>
+			<g:DisclosurePanel ui:field="dsAboutPnl">
+				<g:header> About</g:header>
 				<g:VerticalPanel>
 					<g:Label ui:field="helloUserLbl"></g:Label>
 					<g:Label ui:field="aboutNewPostLbl"></g:Label>
 				</g:VerticalPanel>
-			</g:CaptionPanel>
+			</g:DisclosurePanel>
 			<g:CaptionPanel captionText='{constants.createNewPostStr}'>
 				<g:VerticalPanel>
 						<g:HorizontalPanel>
